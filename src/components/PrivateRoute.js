@@ -1,14 +1,13 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import AuthService from '../helpers/AuthService'
+import { connect } from 'react-redux'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  console.log(rest)
   return (
     <Route
       {...rest}
       render={props =>
-        AuthService.isAuthenticated === true ? (
+        rest.isAuth ? (
           <Component {...props} />
         ) : (
           <Redirect
@@ -23,4 +22,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   )
 }
 
-export default PrivateRoute
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    isAuth: state.session.user,
+  }
+}
+
+export default connect(mapStateToProps)(PrivateRoute)

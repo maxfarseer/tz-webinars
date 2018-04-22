@@ -1,10 +1,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import PrivateRoute from './components/PrivateRoute'
-import Login from './components/Login'
+import LoginContainer from './containers/LoginContainer'
 import LinkBtn from './components/LinkBtn'
 import Home from './components/Home'
-import Profile from './components/Profile'
+import ProfileContainer from './containers/ProfileContainer'
 import AuthStatus from './components/AuthStatus'
 import './App.css'
 import CssBaseline from 'material-ui/CssBaseline'
@@ -30,8 +30,8 @@ const App = () => (
             path="/about"
             render={() => <p>Сделано на вебинаре по тестовому заданию #1</p>}
           />
-          <Route path="/login" component={Login} />
-          <PrivateRoute path="/profile" component={Profile} />
+          <Route path="/login" component={LoginContainer} />
+          <PrivateRoute path="/profile" component={ProfileContainer} />
           <Route render={() => <div>Нет такой страницы</div>} />
         </Switch>
       </div>
