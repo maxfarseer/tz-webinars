@@ -1,11 +1,12 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import PrivateRoute from './components/PrivateRoute'
+import PrivateRoute from './containers/PrivateRoute'
 import LoginContainer from './containers/LoginContainer'
 import LinkBtn from './components/LinkBtn'
 import Home from './components/Home'
 import ProfileContainer from './containers/ProfileContainer'
-import AuthStatus from './components/AuthStatus'
+import NewsContainer from './containers/NewsContainer'
+import NotFound from './components/NotFound'
 import './App.css'
 import CssBaseline from 'material-ui/CssBaseline'
 
@@ -17,8 +18,8 @@ const App = () => (
           <LinkBtn to="/" label={'Главная'} />
           <LinkBtn to="/profile" label={'Профиль'} />
           <LinkBtn to="/news" label={'Новости'} />
+          <LinkBtn to="/abra-kadabra" label={'404'} />
           <LinkBtn to="/login" label={'Логин'} />
-          <AuthStatus />
         </div>
       </header>
 
@@ -26,13 +27,10 @@ const App = () => (
       <div className="content">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route
-            path="/about"
-            render={() => <p>Сделано на вебинаре по тестовому заданию #1</p>}
-          />
+          <Route path="/news" component={NewsContainer} />
           <Route path="/login" component={LoginContainer} />
           <PrivateRoute path="/profile" component={ProfileContainer} />
-          <Route render={() => <div>Нет такой страницы</div>} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     </div>

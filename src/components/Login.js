@@ -13,10 +13,15 @@ class Login extends React.Component {
     e.preventDefault()
     const { username, password } = this.state
 
-    this.props.logIn({
-      username,
-      password,
-    })
+    this.props.logIn(
+      {
+        username,
+        password,
+      },
+      () => {
+        this.setState({ redirectToPreviousRoute: true })
+      }
+    )
   }
 
   handleChange = e => {
@@ -30,10 +35,9 @@ class Login extends React.Component {
   }
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
-    const { redirectToPreviousRoute } = this.state
-
-    const { username, password } = this.state
+    const { location, errorMsg } = this.props
+    const { from } = location.state || { from: { pathname: '/' } }
+    const { username, password, redirectToPreviousRoute } = this.state
 
     if (redirectToPreviousRoute) {
       return <Redirect to={from} />
@@ -41,6 +45,7 @@ class Login extends React.Component {
 
     return (
       <div>
+        {errorMsg && <p>{errorMsg}</p>}
         <form onSubmit={this.handleSubmit}>
           <input
             data-field-name={'username'}
@@ -65,6 +70,7 @@ class Login extends React.Component {
 
 Login.propTypes = {
   logIn: PropTypes.func.isRequired,
+  errorMsg: PropTypes.string,
 }
 
 export default Login

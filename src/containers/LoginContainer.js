@@ -3,8 +3,12 @@ import { connect } from 'react-redux'
 import { logIn } from '../actions/SessionActions'
 import Login from '../components/Login'
 
-const mapDispatchToProps = dispatch => ({
-  logIn: params => dispatch(logIn(params)),
+const mapStateToProps = state => ({
+  errorMsg: state.session.errorMsg,
 })
 
-export default connect(null, mapDispatchToProps)(Login)
+const mapDispatchToProps = dispatch => ({
+  logIn: (params, cb) => dispatch(logIn(params, cb)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

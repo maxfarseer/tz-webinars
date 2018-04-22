@@ -23,7 +23,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     isAuth: state.session.user,
   }
