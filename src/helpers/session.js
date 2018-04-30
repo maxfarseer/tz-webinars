@@ -1,10 +1,6 @@
-export function checkCredentials(params) {
-  if (
-    params.username.toLowerCase() !== 'admin' ||
-    params.password !== '12345'
-  ) {
-    return false
+export function checkResponse(res) {
+  if (res.status === 'ok') {
+    return true
   }
-
-  return true
+  return false
 }
