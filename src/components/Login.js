@@ -5,17 +5,17 @@ import { Redirect } from 'react-router-dom'
 class Login extends React.Component {
   state = {
     redirectToPreviousRoute: false,
-    username: '',
+    email: '',
     password: '',
   }
 
   handleSubmit = e => {
     e.preventDefault()
-    const { username, password } = this.state
+    const { email, password } = this.state
 
     this.props.logIn(
       {
-        username,
+        email,
         password,
       },
       () => {
@@ -37,7 +37,7 @@ class Login extends React.Component {
   render() {
     const { location, errorMsg } = this.props
     const { from } = location.state || { from: { pathname: '/' } }
-    const { username, password, redirectToPreviousRoute } = this.state
+    const { email, password, redirectToPreviousRoute } = this.state
 
     if (redirectToPreviousRoute) {
       return <Redirect to={from} />
@@ -48,11 +48,11 @@ class Login extends React.Component {
         {errorMsg && <p>{errorMsg}</p>}
         <form onSubmit={this.handleSubmit}>
           <input
-            data-field-name={'username'}
+            data-field-name={'email'}
             type={'text'}
             onChange={this.handleChange}
             placeholder={'Имя'}
-            value={username}
+            value={email}
           />
           <input
             data-field-name={'password'}

@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         user: {
-          name: action.payload.name,
+          name: action.payload.email,
         },
         errorMsg: '',
       }

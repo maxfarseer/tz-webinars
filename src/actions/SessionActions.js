@@ -9,12 +9,12 @@ export const LOG_IN_FAILURE = 'LOG_IN_FAILURE'
 export function logIn(params, cb) {
   return dispatch => {
     postData(`${API_ROOT}/validate`, params)
-      .then(data => {
-        if (checkResponse(data)) {
+      .then(res => {
+        if (checkResponse(res)) {
           dispatch({
             type: LOG_IN,
             payload: {
-              name: params.username,
+              email: params.email,
             },
           })
           cb()
@@ -22,7 +22,7 @@ export function logIn(params, cb) {
           dispatch({
             type: LOG_IN_FAILURE,
             payload: {
-              errorMsg: data.message,
+              errorMsg: res.message,
             },
             error: true,
           })
