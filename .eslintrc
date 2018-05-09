@@ -1,15 +1,18 @@
 {
   "extends": [
     "react-app",
-    "prettier"
+    "prettier",
+    "plugin:import/errors"
   ],
   "rules": {
     "jsx-quotes": [
       1,
       "prefer-double"
-    ]
+    ],
+    "import/no-unresolved": 2
   },
   "plugins": [
-    "prettier"
+    "prettier",
+    "import"
   ]
 }
