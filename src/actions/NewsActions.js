@@ -5,37 +5,43 @@ export const NEWS_GET_REQUEST = 'NEWS_GET_REQUEST'
 export const NEWS_GET_SUCCESS = 'NEWS_GET_SUCCESS'
 export const NEWS_GET_FAILURE = 'NEWS_GET_FAILURE'
 
+const defaultErrorMsg = 'Сервер временно недоступен'
+
+export const newsRequest = () => ({
+  type: NEWS_GET_REQUEST,
+})
+
+export const newsSuccess = data => ({
+  type: NEWS_GET_SUCCESS,
+  payload: data,
+})
+
+export const newsFailure = (errorMsg = defaultErrorMsg) => ({
+  type: NEWS_GET_FAILURE,
+  payload: {
+    errorMsg: errorMsg,
+  },
+  error: true,
+})
+
 export function getNews() {
   return dispatch => {
-    dispatch({
-      type: NEWS_GET_REQUEST,
-    })
+    dispatch(newsRequest())
+    /* return fetch('news')
+      .then(res => res.json())
+      .then(body => dispatch(newsSuccess(body.data)))
+      .catch(err => dispatch(newsFailure(err.message))) */
 
-    httpGet(`news`)
+    return httpGet(`news`)
       .then(res => {
         if (checkResponse(res)) {
-          dispatch({
-            type: NEWS_GET_SUCCESS,
-            payload: res.data,
-          })
+          dispatch(newsSuccess(res.data))
         } else {
-          dispatch({
-            type: NEWS_GET_FAILURE,
-            payload: {
-              errorMsg: res.message,
-            },
-            error: true,
-          })
+          dispatch(newsFailure(res.message))
         }
       })
       .catch(error => {
-        dispatch({
-          type: NEWS_GET_FAILURE,
-          payload: {
-            errorMsg: 'Сервер временно недоступен',
-          },
-          error: true,
-        })
+        dispatch(newsFailure())
       })
   }
 }

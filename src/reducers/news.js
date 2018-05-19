@@ -4,9 +4,9 @@ import {
   NEWS_GET_FAILURE,
 } from '../actions/NewsActions'
 
-const initialState = {
+export const initialState = {
   isLoading: false,
-  data: [],
+  data: null,
   errorMsg: null,
 }
 
