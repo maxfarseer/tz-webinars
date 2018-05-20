@@ -1,9 +1,9 @@
 // @flow
 import { combineReducers } from 'redux'
-import session from './session'
-import news from '../news'
+import session from '../pages/Login'
+import news from '../pages/News'
 
 export default combineReducers({
   [news.constants.NAME]: news.reducer,
-  session, // TODO
+  [session.constants.NAME]: session.reducer,
 })

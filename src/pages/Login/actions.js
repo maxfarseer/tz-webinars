@@ -1,18 +1,24 @@
-import { API_ROOT } from '../constants/Defaults'
-import { checkResponse } from '../helpers/session'
-import { postData } from '../helpers/network'
+// @flow
 
-export const LOG_IN = 'LOG_IN'
-export const LOG_OUT = 'LOG_OUT'
-export const LOG_IN_FAILURE = 'LOG_IN_FAILURE'
+import { API_ROOT } from '../../constants/Defaults'
+import { checkResponse } from '../../helpers/session'
+import { postData } from '../../helpers/network'
+import * as t from './actionTypes'
 
-export function logIn(params, cb) {
-  return dispatch => {
+type CbType = () => void
+type Params = {|
+  +email: string,
+  +password: string,
+|}
+
+// TODO: make acync AC flow typed
+export function logIn(params: Params, cb: CbType): Function {
+  return (dispatch: any) => {
     postData(`${API_ROOT}/validate`, params)
       .then(res => {
         if (checkResponse(res)) {
           dispatch({
-            type: LOG_IN,
+            type: t.LOG_IN,
             payload: {
               email: params.email,
             },
@@ -20,7 +26,7 @@ export function logIn(params, cb) {
           cb()
         } else {
           dispatch({
-            type: LOG_IN_FAILURE,
+            type: t.LOG_IN_FAILURE,
             payload: {
               errorMsg: res.message,
             },
@@ -30,7 +36,7 @@ export function logIn(params, cb) {
       })
       .catch(error => {
         dispatch({
-          type: LOG_IN_FAILURE,
+          type: t.LOG_IN_FAILURE,
           payload: {
             errorMsg: 'Сервер временно недоступен',
           },
@@ -42,6 +48,6 @@ export function logIn(params, cb) {
 
 export function logOut() {
   return {
-    type: LOG_OUT,
+    type: t.LOG_OUT,
   }
 }

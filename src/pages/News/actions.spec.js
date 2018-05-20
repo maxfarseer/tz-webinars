@@ -1,9 +1,9 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { API_ROOT } from '../constants/Defaults'
+import { API_ROOT } from '../../constants/Defaults'
 import * as t from './actionTypes'
 
-import { newsRequest, newsSuccess, getNews } from './actions'
+import { newsRequest, newsSuccess, newsFailure, getNews } from './actions'
 
 import fetchMock from 'fetch-mock'
 import expect from 'expect'
@@ -26,6 +26,18 @@ describe('NewsActions', () => {
         payload: [1, 2, 3],
       }
       expect(newsSuccess([1, 2, 3])).toEqual(expectedAction)
+    })
+
+    it('newsFailure(): should attach error message', () => {
+      const errorMessage = 'wrong password'
+      const expectedAction = {
+        type: t.NEWS_GET_FAILURE,
+        payload: {
+          errorMsg: errorMessage,
+        },
+        error: true,
+      }
+      expect(newsFailure(errorMessage)).toEqual(expectedAction)
     })
   })
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import PrivateRoute from './containers/PrivateRoute'
-import LoginContainer from './containers/LoginContainer'
 import LinkBtn from './components/LinkBtn'
 import Home from './components/Home'
 import ProfileContainer from './containers/ProfileContainer'
-import News from './news'
+import News from './pages/News'
+import Login from './pages/Login'
 import NotFound from './components/NotFound'
 import './App.css'
 import CssBaseline from 'material-ui/CssBaseline'
@@ -28,7 +28,7 @@ const App = () => (
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/news" component={News.components.NewsContainer} />
-          <Route path="/login" component={LoginContainer} />
+          <Route path="/login" component={Login.components.LoginContainer} />
           <PrivateRoute path="/profile" component={ProfileContainer} />
           <Route component={NotFound} />
         </Switch>

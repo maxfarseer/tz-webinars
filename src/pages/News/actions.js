@@ -1,7 +1,7 @@
 // @flow
 
-import { checkResponse } from '../helpers/session'
-import { httpGet } from '../helpers/network'
+import { checkResponse } from '../../helpers/session'
+import { httpGet } from '../../helpers/network'
 
 import * as t from './actionTypes'
 
@@ -19,7 +19,7 @@ export const newsSuccess = (data: any) => ({
 export const newsFailure = (errorMsg: string = defaultErrorMsg): any => ({
   type: t.NEWS_GET_FAILURE,
   payload: {
-    errorMsg: errorMsg,
+    errorMsg,
   },
   error: true,
 })

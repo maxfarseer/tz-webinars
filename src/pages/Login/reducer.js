@@ -1,13 +1,16 @@
-import { LOG_IN, LOG_OUT, LOG_IN_FAILURE } from '../actions/SessionActions'
+//@ flow
 
-const initialState = {
+import * as t from './actionTypes'
+import type { State } from './model'
+
+const initialState: State = {
   user: null,
   errorMsg: '',
 }
 
-export default (state = initialState, action) => {
+export default (state: State = initialState, action: any): State => {
   switch (action.type) {
-    case LOG_IN:
+    case t.LOG_IN:
       return {
         ...state,
         user: {
@@ -15,13 +18,13 @@ export default (state = initialState, action) => {
         },
         errorMsg: '',
       }
-    case LOG_OUT:
+    case t.LOG_OUT:
       return {
         ...state,
         user: null,
         errorMsg: '',
       }
-    case LOG_IN_FAILURE:
+    case t.LOG_IN_FAILURE:
       return {
         ...state,
         errorMsg: action.payload.errorMsg,
