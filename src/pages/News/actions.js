@@ -2,10 +2,9 @@
 
 import { checkResponse } from '../../helpers/session'
 import { httpGet } from '../../helpers/network'
+import { defaultErrorMsg } from '../../constants/Defaults'
 
 import * as t from './actionTypes'
-
-const defaultErrorMsg = 'Сервер временно недоступен'
 
 export const newsRequest = () => ({
   type: t.NEWS_GET_REQUEST,

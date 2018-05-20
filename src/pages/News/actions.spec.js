@@ -54,7 +54,7 @@ describe('NewsActions', () => {
       })
 
       const expectedActions = [newsRequest(), newsSuccess([1, 2, 3])]
-      const store = mockStore({ todos: [] })
+      const store = mockStore({})
 
       return store.dispatch(getNews()).then(() => {
         expect(store.getActions()).toEqual(expectedActions)

@@ -3,6 +3,7 @@
 import { API_ROOT } from '../../constants/Defaults'
 import { checkResponse } from '../../helpers/session'
 import { postData } from '../../helpers/network'
+import { defaultErrorMsg } from '../../constants/Defaults'
 import * as t from './actionTypes'
 
 type CbType = () => void
@@ -11,37 +12,41 @@ type Params = {|
   +password: string,
 |}
 
+export const loginRequest = () => ({
+  type: t.LOG_IN_REQUEST,
+})
+
+export const loginSuccess = (email: string) => ({
+  type: t.LOG_IN_SUCCESS,
+  payload: {
+    email,
+  },
+})
+
+export const loginFailure = (errorMsg: string = defaultErrorMsg): any => ({
+  type: t.LOG_IN_FAILURE,
+  payload: {
+    errorMsg,
+  },
+  error: true,
+})
+
 // TODO: make acync AC flow typed
 export function logIn(params: Params, cb: CbType): Function {
   return (dispatch: any) => {
-    postData(`${API_ROOT}/validate`, params)
+    dispatch(loginRequest())
+    return postData(`${API_ROOT}/validate`, params)
       .then(res => {
         if (checkResponse(res)) {
-          dispatch({
-            type: t.LOG_IN,
-            payload: {
-              email: params.email,
-            },
-          })
+          //TODO: smth from response
+          dispatch(loginSuccess(params.email))
           cb()
         } else {
-          dispatch({
-            type: t.LOG_IN_FAILURE,
-            payload: {
-              errorMsg: res.message,
-            },
-            error: true,
-          })
+          dispatch(loginFailure(res.message))
         }
       })
       .catch(error => {
-        dispatch({
-          type: t.LOG_IN_FAILURE,
-          payload: {
-            errorMsg: 'Сервер временно недоступен',
-          },
-          error: true,
-        })
+        dispatch(loginFailure())
       })
   }
 }

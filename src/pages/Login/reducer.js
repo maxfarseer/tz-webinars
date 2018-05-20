@@ -3,26 +3,33 @@
 import * as t from './actionTypes'
 import type { State } from './model'
 
-const initialState: State = {
+export const initialState: State = {
   user: null,
-  errorMsg: '',
+  errorMsg: null,
+  isLoading: false,
 }
 
 export default (state: State = initialState, action: any): State => {
   switch (action.type) {
-    case t.LOG_IN:
+    case t.LOG_IN_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        errorMsg: null,
+      }
+    case t.LOG_IN_SUCCESS:
       return {
         ...state,
         user: {
           name: action.payload.email,
         },
-        errorMsg: '',
+        errorMsg: null,
       }
     case t.LOG_OUT:
       return {
         ...state,
         user: null,
-        errorMsg: '',
+        errorMsg: null,
       }
     case t.LOG_IN_FAILURE:
       return {

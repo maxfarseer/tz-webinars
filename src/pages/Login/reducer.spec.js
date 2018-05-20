@@ -1,38 +1,45 @@
 import reducer, { initialState } from './reducer'
 import * as t from './actionTypes'
 
-describe('news reducer', () => {
+describe('session reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(initialState)
   })
 
-  it('NEWS_GET_REQUEST', () => {
+  it('LOG_IN_REQUEST', () => {
     const action = {
-      type: t.NEWS_GET_REQUEST,
+      type: t.LOG_IN_REQUEST,
     }
 
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
       isLoading: true,
+      errorMsg: null,
     })
   })
 
-  it('NEWS_GET_SUCCESS', () => {
+  it('LOG_IN_SUCCESS', () => {
     const action = {
-      type: t.NEWS_GET_SUCCESS,
-      payload: [1, 2, 3],
+      type: t.LOG_IN_SUCCESS,
+      payload: {
+        email: 'm@m.com',
+      },
+      errorMsg: null,
     }
 
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
       isLoading: false,
-      data: [1, 2, 3],
+      user: {
+        name: 'm@m.com',
+      },
+      errorMsg: null,
     })
   })
 
-  it('NEWS_GET_FAILURE', () => {
+  it('LOG_IN_FAILURE', () => {
     const action = {
-      type: t.NEWS_GET_FAILURE,
+      type: t.LOG_IN_FAILURE,
       payload: {
         errorMsg: 'something going wrong',
       },
