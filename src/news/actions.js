@@ -1,23 +1,23 @@
+// @flow
+
 import { checkResponse } from '../helpers/session'
 import { httpGet } from '../helpers/network'
 
-export const NEWS_GET_REQUEST = 'NEWS_GET_REQUEST'
-export const NEWS_GET_SUCCESS = 'NEWS_GET_SUCCESS'
-export const NEWS_GET_FAILURE = 'NEWS_GET_FAILURE'
+import * as t from './actionTypes'
 
 const defaultErrorMsg = 'Сервер временно недоступен'
 
 export const newsRequest = () => ({
-  type: NEWS_GET_REQUEST,
+  type: t.NEWS_GET_REQUEST,
 })
 
-export const newsSuccess = data => ({
-  type: NEWS_GET_SUCCESS,
+export const newsSuccess = (data: any) => ({
+  type: t.NEWS_GET_SUCCESS,
   payload: data,
 })
 
-export const newsFailure = (errorMsg = defaultErrorMsg) => ({
-  type: NEWS_GET_FAILURE,
+export const newsFailure = (errorMsg: string = defaultErrorMsg): any => ({
+  type: t.NEWS_GET_FAILURE,
   payload: {
     errorMsg: errorMsg,
   },
@@ -25,12 +25,8 @@ export const newsFailure = (errorMsg = defaultErrorMsg) => ({
 })
 
 export function getNews() {
-  return dispatch => {
+  return (dispatch: any): any => {
     dispatch(newsRequest())
-    /* return fetch('news')
-      .then(res => res.json())
-      .then(body => dispatch(newsSuccess(body.data)))
-      .catch(err => dispatch(newsFailure(err.message))) */
 
     return httpGet(`news`)
       .then(res => {

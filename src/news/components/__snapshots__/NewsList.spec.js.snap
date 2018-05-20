@@ -1,0 +1,276 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsList renders properly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NewsList
+    data={
+        Array [
+            Object {
+              "id": 1,
+              "text": "b",
+              "title": "a",
+            },
+            Object {
+              "id": 2,
+              "text": "b2",
+              "title": "a2",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="news-item"
+>
+          <h3>
+                    a
+          </h3>
+          <p>
+                    b
+          </p>
+</div>,
+        <div
+          className="news-item"
+>
+          <h3>
+                    a2
+          </h3>
+          <p>
+                    b2
+          </p>
+</div>,
+      ],
+      "className": "news-list",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              a
+</h3>,
+            <p>
+              b
+</p>,
+          ],
+          "className": "news-item",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "a",
+            },
+            "ref": null,
+            "rendered": "a",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "b",
+            },
+            "ref": null,
+            "rendered": "b",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              a2
+</h3>,
+            <p>
+              b2
+</p>,
+          ],
+          "className": "news-item",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "a2",
+            },
+            "ref": null,
+            "rendered": "a2",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "b2",
+            },
+            "ref": null,
+            "rendered": "b2",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="news-item"
+>
+            <h3>
+                        a
+            </h3>
+            <p>
+                        b
+            </p>
+</div>,
+          <div
+            className="news-item"
+>
+            <h3>
+                        a2
+            </h3>
+            <p>
+                        b2
+            </p>
+</div>,
+        ],
+        "className": "news-list",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                a
+</h3>,
+              <p>
+                b
+</p>,
+            ],
+            "className": "news-item",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "a",
+              },
+              "ref": null,
+              "rendered": "a",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "b",
+              },
+              "ref": null,
+              "rendered": "b",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                a2
+</h3>,
+              <p>
+                b2
+</p>,
+            ],
+            "className": "news-item",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "a2",
+              },
+              "ref": null,
+              "rendered": "a2",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "b2",
+              },
+              "ref": null,
+              "rendered": "b2",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

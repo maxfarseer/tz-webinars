@@ -1,8 +1,9 @@
+// @flow
 import { combineReducers } from 'redux'
 import session from './session'
-import news from './news'
+import news from '../news'
 
 export default combineReducers({
-  news,
-  session,
+  [news.constants.NAME]: news.reducer,
+  session, // TODO
 })

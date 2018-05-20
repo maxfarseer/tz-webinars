@@ -5,7 +5,7 @@ import LoginContainer from './containers/LoginContainer'
 import LinkBtn from './components/LinkBtn'
 import Home from './components/Home'
 import ProfileContainer from './containers/ProfileContainer'
-import NewsContainer from './containers/NewsContainer'
+import News from './news'
 import NotFound from './components/NotFound'
 import './App.css'
 import CssBaseline from 'material-ui/CssBaseline'
@@ -27,7 +27,7 @@ const App = () => (
       <div className="content">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/news" component={NewsContainer} />
+          <Route path="/news" component={News.components.NewsContainer} />
           <Route path="/login" component={LoginContainer} />
           <PrivateRoute path="/profile" component={ProfileContainer} />
           <Route component={NotFound} />

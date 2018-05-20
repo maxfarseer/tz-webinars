@@ -1,30 +1,28 @@
-import {
-  NEWS_GET_REQUEST,
-  NEWS_GET_SUCCESS,
-  NEWS_GET_FAILURE,
-} from '../actions/NewsActions'
+// @flow
+import * as t from './actionTypes'
+import type { State } from './model'
 
-export const initialState = {
-  isLoading: false,
+export const initialState: State = {
   data: null,
+  isLoading: false,
   errorMsg: null,
 }
 
-export default (state = initialState, action) => {
+export default (state: State = initialState, action: any): State => {
   switch (action.type) {
-    case NEWS_GET_REQUEST:
+    case t.NEWS_GET_REQUEST:
       return {
         ...state,
         isLoading: true,
         errorMsg: null,
       }
-    case NEWS_GET_SUCCESS:
+    case t.NEWS_GET_SUCCESS:
       return {
         ...state,
         isLoading: false,
         data: action.payload,
       }
-    case NEWS_GET_FAILURE:
+    case t.NEWS_GET_FAILURE:
       return {
         ...state,
         errorMsg: action.payload.errorMsg,

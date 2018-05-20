@@ -1,9 +1,5 @@
-import reducer, { initialState } from '../reducers/news'
-import {
-  NEWS_GET_REQUEST,
-  NEWS_GET_SUCCESS,
-  NEWS_GET_FAILURE,
-} from '../actions/NewsActions'
+import reducer, { initialState } from './reducer'
+import * as t from './actionTypes'
 
 describe('news reducer', () => {
   it('should return the initial state', () => {
@@ -12,7 +8,7 @@ describe('news reducer', () => {
 
   it('should handle NEWS_GET_REQUEST', () => {
     const action = {
-      type: NEWS_GET_REQUEST,
+      type: t.NEWS_GET_REQUEST,
     }
 
     expect(reducer(initialState, action)).toEqual({
@@ -23,7 +19,7 @@ describe('news reducer', () => {
 
   it('should handle NEWS_GET_SUCCESS', () => {
     const action = {
-      type: NEWS_GET_SUCCESS,
+      type: t.NEWS_GET_SUCCESS,
       payload: [1, 2, 3],
     }
 
@@ -36,7 +32,7 @@ describe('news reducer', () => {
 
   it('should handle NEWS_GET_FAILURE', () => {
     const action = {
-      type: NEWS_GET_FAILURE,
+      type: t.NEWS_GET_FAILURE,
       payload: {
         errorMsg: 'something going wrong',
       },
