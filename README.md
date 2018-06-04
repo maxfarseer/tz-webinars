@@ -10,9 +10,7 @@
 
 Ветка уже содержит решение.
 
-[2. Усложняем п.1 добавляя работу с redux async actions](https://github.com/maxfarseer/tz-webinars/tree/tz-2-react-redux-router-async)
-
-Разбор состоится в конце мая. Ветка еще не содержит полного решения.
+[2. Усложняем п.1 добавляя работу с redux async actions](https://github.com/maxfarseer/tz-webinars/tree/tz-2-react-redux-router-async) + [разбор](https://www.youtube.com/watch?v=EWaNgM4mv-A)
 
 ... (список заданий будет дополняться по мере анонсов)
 
