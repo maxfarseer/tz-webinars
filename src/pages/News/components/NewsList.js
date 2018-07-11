@@ -17,7 +17,11 @@ const NewsList = ({ data }) => {
 }
 
 NewsList.proptypes = {
-  data: PropTypes.array.isRequired, //TODO: shapeof
+  data: PropTypes.shape({
+    data: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    errorMsg: PropTypes.string,
+  }).isRequired,
 }
 
 export default NewsList

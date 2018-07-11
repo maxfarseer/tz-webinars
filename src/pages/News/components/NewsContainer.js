@@ -11,10 +11,9 @@ export class NewsContainer extends React.Component {
 
   render() {
     const { news: { isLoading, data, errorMsg } } = this.props
-    // TODO: errorMsg from common component
     return (
       <React.Fragment>
-        {errorMsg && <p>errorMsg</p>}
+        {errorMsg && <p>{errorMsg}</p>}
         {isLoading ? <p>Loading...</p> : null}
         {data && data.length && <NewsList data={data} />}
       </React.Fragment>

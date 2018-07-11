@@ -12,7 +12,7 @@ describe('News container', () => {
     onGetNews: () => {},
   }
 
-  describe('News container initial + cdm', () => {
+  describe('News container initial', () => {
     const mockFetchGetNews = jest.fn()
     const nextProps = {
       ...props,
@@ -44,7 +44,7 @@ describe('News container', () => {
       expect(newsContainer).toMatchSnapshot()
     })
 
-    it('renders preloader template', () => {
+    it('renders preloader', () => {
       expect(newsContainer.find('p').text()).toEqual('Loading...')
     })
   })
@@ -54,7 +54,6 @@ describe('News container', () => {
       ...props,
       news: {
         ...props.news,
-        isLoading: false,
         data: [1],
       },
     }
@@ -65,8 +64,28 @@ describe('News container', () => {
       expect(newsContainer).toMatchSnapshot()
     })
 
-    it('renders preloader template', () => {
+    it('renders <NewsList /> template', () => {
       expect(newsContainer.find('NewsList')).toHaveLength(1)
+    })
+  })
+
+  describe('News container with errorMsg', () => {
+    const nextProps = {
+      ...props,
+      news: {
+        ...props.news,
+        errorMsg: 'Something going wrong',
+      },
+    }
+
+    const newsContainer = shallow(<NewsContainer {...nextProps} />)
+
+    it('renders properly', () => {
+      expect(newsContainer).toMatchSnapshot()
+    })
+
+    it('renders errorMsg', () => {
+      expect(newsContainer.find('p').text()).toEqual(nextProps.news.errorMsg)
     })
   })
 })
