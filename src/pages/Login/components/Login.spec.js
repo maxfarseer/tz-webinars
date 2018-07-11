@@ -26,60 +26,73 @@ describe('Login', () => {
     expect(login.state()).toEqual(initialState)
   })
 
-  describe('when typing into email input', () => {
-    const email = 'max@test.com'
+  describe('Form handlers', () => {
+    describe('when typing into email input', () => {
+      const email = 'max@test.com'
 
-    beforeEach(() => {
-      login.find('[data-field-name="email"]').simulate('change', {
-        currentTarget: {
-          value: email,
-          dataset: {
-            fieldName: 'email',
+      beforeEach(() => {
+        login.find('[data-field-name="email"]').simulate('change', {
+          currentTarget: {
+            value: email,
+            dataset: {
+              fieldName: 'email',
+            },
           },
-        },
+        })
+      })
+
+      it('updates email field in state', () => {
+        expect(login.state().email).toEqual(email)
       })
     })
+    describe('when typing into password input', () => {
+      const password = '11'
 
-    it('updates email field in state', () => {
-      expect(login.state().email).toEqual(email)
-    })
-  })
-
-  describe('when typing into password input', () => {
-    const password = '11'
-
-    beforeEach(() => {
-      login.find('[data-field-name="password"]').simulate('change', {
-        currentTarget: {
-          value: password,
-          dataset: {
-            fieldName: 'password',
+      beforeEach(() => {
+        login.find('[data-field-name="password"]').simulate('change', {
+          currentTarget: {
+            value: password,
+            dataset: {
+              fieldName: 'password',
+            },
           },
-        },
+        })
+      })
+
+      it('updates password field in state', () => {
+        expect(login.state().password).toEqual(password)
       })
     })
 
-    it('updates password field in state', () => {
-      expect(login.state().password).toEqual(password)
-    })
-  })
+    describe('when submiting the form', () => {
+      beforeEach(() => {
+        login.find('form').simulate('submit', {
+          preventDefault: () => {},
+        })
+      })
 
-  describe('when clicking the Login button', () => {
-    beforeEach(() => {
-      login.find('form').simulate('submit', {
-        preventDefault() {},
+      it('calls the props.logIn', () => {
+        /* expect(mockLogin).toHaveBeenCalledWith(
+          {
+            email: 'max@test.com',
+            password: '11',
+          }
+        ) */
+        expect(mockLogin).toHaveBeenCalledTimes(1)
+      })
+    })
+    describe('when clicking the Login button', () => {
+      login.find('button').simulate('click', {
+        preventDefault: () => {},
+      })
+
+      it('calls the props.logIn', () => {
+        expect(mockLogin).toHaveBeenCalledTimes(1)
       })
     })
 
-    it('calls the login callback', () => {
-      /* expect(mockLogin).toHaveBeenCalledWith(
-        {
-          email: 'max@test.com',
-          password: '11',
-        },
-        () => {}
-      ) */
-      expect(mockLogin).toHaveBeenCalled(1)
+    afterAll(() => {
+      login.setState(initialState)
     })
   })
 })
