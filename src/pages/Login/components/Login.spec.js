@@ -95,4 +95,63 @@ describe('Login', () => {
       login.setState(initialState)
     })
   })
+
+  describe('disabled attr for submit button', () => {
+    it('render form with disabled button at initial render', () => {
+      const button = login.find('button')
+      expect(button.prop('disabled')).toBeTruthy()
+    })
+
+    it('render form with disabled button for bad password', () => {
+      const nextState = {
+        ...initialState,
+        password: 123,
+        email: 'max@test.com',
+      }
+      login.setState(nextState)
+
+      const button = login.find('button')
+      expect(button.prop('disabled')).toBeTruthy()
+    })
+
+    it('render form with disabled button for bad email', () => {
+      const nextState = {
+        ...initialState,
+        password: 12345,
+        email: 'bademail',
+      }
+      login.setState(nextState)
+
+      const button = login.find('button')
+      expect(button.prop('disabled')).toBeTruthy()
+    })
+
+    it('render form with disabled button for bad email & password', () => {
+      const nextState = {
+        ...initialState,
+        password: 1,
+        email: 'bademail',
+      }
+      login.setState(nextState)
+
+      const button = login.find('button')
+      expect(button.prop('disabled')).toBeTruthy()
+    })
+
+    it('render form without disabled button, because email & password are correct', () => {
+      const nextState = {
+        ...initialState,
+        email: 'max@test.com',
+        password: '123456',
+      }
+      login.setState(nextState)
+
+      const button = login.find('button')
+      expect(button.prop('disabled')).toBeFalsy()
+    })
+
+    afterEach(() => {
+      login.setState(initialState)
+    })
+  })
 })

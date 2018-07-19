@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
+import { testPassword, testEmail } from '../../../helpers/inputs'
 
 class Login extends React.Component {
   state = {
@@ -34,6 +35,17 @@ class Login extends React.Component {
     }))
   }
 
+  validate = () => {
+    const { email, password } = this.state
+    if (!testPassword(password)) {
+      return false
+    }
+    if (!testEmail(email)) {
+      return false
+    }
+    return true
+  }
+
   render() {
     const { location, errorMsg } = this.props
     const { from } = location.state || { from: { pathname: '/' } }
@@ -51,7 +63,7 @@ class Login extends React.Component {
             data-field-name={'email'}
             type={'text'}
             onChange={this.handleChange}
-            placeholder={'Имя'}
+            placeholder={'e-mail'}
             value={email}
           />
           <input
@@ -61,7 +73,9 @@ class Login extends React.Component {
             placeholder={'Пароль'}
             value={password}
           />
-          <button type="submit">Log in</button>
+          <button disabled={!this.validate()} type="submit">
+            Log in
+          </button>
         </form>
       </div>
     )

@@ -35,7 +35,7 @@ ShallowWrapper {
           <input
                     data-field-name="email"
                     onChange={[Function]}
-                    placeholder="Имя"
+                    placeholder="e-mail"
                     type="text"
                     value=""
           />
@@ -47,6 +47,7 @@ ShallowWrapper {
                     value=""
           />
           <button
+                    disabled={true}
                     type="submit"
           >
                     Log in
@@ -66,7 +67,7 @@ ShallowWrapper {
             <input
               data-field-name="email"
               onChange={[Function]}
-              placeholder="Имя"
+              placeholder="e-mail"
               type="text"
               value=""
 />,
@@ -78,6 +79,7 @@ ShallowWrapper {
               value=""
 />,
             <button
+              disabled={true}
               type="submit"
 >
               Log in
@@ -94,7 +96,7 @@ ShallowWrapper {
             "props": Object {
               "data-field-name": "email",
               "onChange": [Function],
-              "placeholder": "Имя",
+              "placeholder": "e-mail",
               "type": "text",
               "value": "",
             },
@@ -123,6 +125,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "Log in",
+              "disabled": true,
               "type": "submit",
             },
             "ref": null,
@@ -149,7 +152,7 @@ ShallowWrapper {
             <input
                         data-field-name="email"
                         onChange={[Function]}
-                        placeholder="Имя"
+                        placeholder="e-mail"
                         type="text"
                         value=""
             />
@@ -161,6 +164,7 @@ ShallowWrapper {
                         value=""
             />
             <button
+                        disabled={true}
                         type="submit"
             >
                         Log in
@@ -180,7 +184,7 @@ ShallowWrapper {
               <input
                 data-field-name="email"
                 onChange={[Function]}
-                placeholder="Имя"
+                placeholder="e-mail"
                 type="text"
                 value=""
 />,
@@ -192,6 +196,7 @@ ShallowWrapper {
                 value=""
 />,
               <button
+                disabled={true}
                 type="submit"
 >
                 Log in
@@ -208,7 +213,7 @@ ShallowWrapper {
               "props": Object {
                 "data-field-name": "email",
                 "onChange": [Function],
-                "placeholder": "Имя",
+                "placeholder": "e-mail",
                 "type": "text",
                 "value": "",
               },
@@ -237,6 +242,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "Log in",
+                "disabled": true,
                 "type": "submit",
               },
               "ref": null,
