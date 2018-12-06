@@ -12,6 +12,8 @@
 
 [2. Усложняем п.1 добавляя работу с redux async actions](https://github.com/maxfarseer/tz-webinars/tree/tz-2-react-redux-router-async) + [разбор](https://www.youtube.com/watch?v=EWaNgM4mv-A)
 
+[3. CRUD-приложение + авторизация через Google Sign In](https://maxpfrontend.ru/zametki/testovoe-zadanie-3/)
+
 ... (список заданий будет дополняться по мере анонсов)
 
 ---
