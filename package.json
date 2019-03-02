@@ -10,7 +10,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
+    "react-scripts": "^2.1.5",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
@@ -30,7 +30,8 @@
     ]
   },
   "devDependencies": {
-    "babel-jest": "^22.4.4",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.6.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-prettier": "^2.9.0",

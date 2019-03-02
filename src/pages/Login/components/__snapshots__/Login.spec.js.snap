@@ -2,23 +2,24 @@
 
 exports[`Login renders properly 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Login
     errorMsg={null}
     location={
-        Object {
-            "state": Object {
-              "from": "/",
-            },
-          }
+      Object {
+        "state": Object {
+          "from": "/",
+        },
+      }
     }
-    logIn={[Function]}
-/>,
+    logIn={[MockFunction]}
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -31,28 +32,28 @@ ShallowWrapper {
         null,
         <form
           onSubmit={[Function]}
->
+        >
           <input
-                    data-field-name="email"
-                    onChange={[Function]}
-                    placeholder="e-mail"
-                    type="text"
-                    value=""
+            data-field-name="email"
+            onChange={[Function]}
+            placeholder="e-mail"
+            type="text"
+            value=""
           />
           <input
-                    data-field-name="password"
-                    onChange={[Function]}
-                    placeholder="Пароль"
-                    type="text"
-                    value=""
+            data-field-name="password"
+            onChange={[Function]}
+            placeholder="Пароль"
+            type="text"
+            value=""
           />
           <button
-                    disabled={true}
-                    type="submit"
+            disabled={true}
+            type="submit"
           >
-                    Log in
+            Log in
           </button>
-</form>,
+        </form>,
       ],
     },
     "ref": null,
@@ -70,20 +71,20 @@ ShallowWrapper {
               placeholder="e-mail"
               type="text"
               value=""
-/>,
+            />,
             <input
               data-field-name="password"
               onChange={[Function]}
               placeholder="Пароль"
               type="text"
               value=""
-/>,
+            />,
             <button
               disabled={true}
               type="submit"
->
+            >
               Log in
-</button>,
+            </button>,
           ],
           "onSubmit": [Function],
         },
@@ -148,28 +149,28 @@ ShallowWrapper {
           null,
           <form
             onSubmit={[Function]}
->
+          >
             <input
-                        data-field-name="email"
-                        onChange={[Function]}
-                        placeholder="e-mail"
-                        type="text"
-                        value=""
+              data-field-name="email"
+              onChange={[Function]}
+              placeholder="e-mail"
+              type="text"
+              value=""
             />
             <input
-                        data-field-name="password"
-                        onChange={[Function]}
-                        placeholder="Пароль"
-                        type="text"
-                        value=""
+              data-field-name="password"
+              onChange={[Function]}
+              placeholder="Пароль"
+              type="text"
+              value=""
             />
             <button
-                        disabled={true}
-                        type="submit"
+              disabled={true}
+              type="submit"
             >
-                        Log in
+              Log in
             </button>
-</form>,
+          </form>,
         ],
       },
       "ref": null,
@@ -187,20 +188,20 @@ ShallowWrapper {
                 placeholder="e-mail"
                 type="text"
                 value=""
-/>,
+              />,
               <input
                 data-field-name="password"
                 onChange={[Function]}
                 placeholder="Пароль"
                 type="text"
                 value=""
-/>,
+              />,
               <button
                 disabled={true}
                 type="submit"
->
+              >
                 Log in
-</button>,
+              </button>,
             ],
             "onSubmit": [Function],
           },
@@ -260,8 +261,23 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

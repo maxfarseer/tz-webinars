@@ -2,22 +2,35 @@
 
 exports[`News container News container initial renders properly 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NewsContainer
     news={
-        Object {
-            "data": Array [],
-            "errorMsg": null,
-            "isLoading": false,
-          }
+      Object {
+        "data": Array [],
+        "errorMsg": null,
+        "isLoading": false,
+      }
     }
-    onGetNews={[Function]}
-/>,
+    onGetNews={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -65,30 +78,46 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
 exports[`News container News container isLoading renders properly 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NewsContainer
     news={
-        Object {
-            "data": Array [],
-            "errorMsg": null,
-            "isLoading": true,
-          }
+      Object {
+        "data": Array [],
+        "errorMsg": null,
+        "isLoading": true,
+      }
     }
     onGetNews={[Function]}
-/>,
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -101,7 +130,7 @@ ShallowWrapper {
         null,
         <p>
           Loading...
-</p>,
+        </p>,
         0,
       ],
     },
@@ -133,7 +162,7 @@ ShallowWrapper {
           null,
           <p>
             Loading...
-</p>,
+          </p>,
           0,
         ],
       },
@@ -160,32 +189,48 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
 exports[`News container News container render <NewsList /> renders properly 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NewsContainer
     news={
-        Object {
-            "data": Array [
-              1,
-            ],
-            "errorMsg": null,
-            "isLoading": false,
-          }
+      Object {
+        "data": Array [
+          1,
+        ],
+        "errorMsg": null,
+        "isLoading": false,
+      }
     }
     onGetNews={[Function]}
-/>,
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -199,11 +244,11 @@ ShallowWrapper {
         null,
         <NewsList
           data={
-                    Array [
-                              1,
-                            ]
+            Array [
+              1,
+            ]
           }
-/>,
+        />,
       ],
     },
     "ref": null,
@@ -237,11 +282,11 @@ ShallowWrapper {
           null,
           <NewsList
             data={
-                        Array [
-                                    1,
-                                  ]
+              Array [
+                1,
+              ]
             }
-/>,
+          />,
         ],
       },
       "ref": null,
@@ -269,30 +314,46 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
 exports[`News container News container with errorMsg renders properly 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NewsContainer
     news={
-        Object {
-            "data": Array [],
-            "errorMsg": "Something going wrong",
-            "isLoading": false,
-          }
+      Object {
+        "data": Array [],
+        "errorMsg": "Something going wrong",
+        "isLoading": false,
+      }
     }
     onGetNews={[Function]}
-/>,
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -304,7 +365,7 @@ ShallowWrapper {
       "children": Array [
         <p>
           Something going wrong
-</p>,
+        </p>,
         null,
         0,
       ],
@@ -336,7 +397,7 @@ ShallowWrapper {
         "children": Array [
           <p>
             Something going wrong
-</p>,
+          </p>,
           null,
           0,
         ],
@@ -364,8 +425,23 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
